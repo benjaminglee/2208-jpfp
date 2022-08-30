@@ -5,7 +5,7 @@ router.get("/", async (req, res, next) => {
   try {
     res.send(await Student.findAll());
   } catch (error) {
-    console.log(error);
+    next(error);
   }
 });
 

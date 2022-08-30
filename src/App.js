@@ -2,8 +2,11 @@ import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Campuses from "./components/campuses";
 import Students from "./components/students";
+import { useSelector } from "react-redux";
 
 function App() {
+  const state = useSelector((state) => state);
+  console.log(state);
   return (
     <>
       <nav>
