@@ -1,11 +1,11 @@
-const SET_CAMPUS = "SET_CAMPUS";
+const SET_CAMPUSES = "SET_CAMPUSES";
 const ADD_CAMPUS = "ADD_CAMPUS";
 const UPDATE_CAMPUS = "UPDATE_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
 
 const campusReducer = (state = [], action) => {
   switch (action.type) {
-    case SET_CAMPUS:
+    case SET_CAMPUSES:
       return action.campuses;
     case ADD_CAMPUS:
       return [...state, action.campus];

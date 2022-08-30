@@ -4,10 +4,12 @@ import Campuses from "./components/campuses";
 import Students from "./components/students";
 import { useSelector, useDispatch } from "react-redux";
 import { setStudents } from "./store/actions/studentActions";
+import { setCampuses } from "./store/actions/campusActions";
 
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(setCampuses());
     dispatch(setStudents());
   }, [dispatch]);
   const students = useSelector((state) => state.students);
