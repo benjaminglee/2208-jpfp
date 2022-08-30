@@ -3,9 +3,9 @@ import React from "react";
 function SingleCampus({ campus }) {
   const { name, imageUrl, address, description } = campus;
   return (
-    <div>
+    <div className="container">
       <h1>{name}</h1>
-      <p>{imageUrl}</p>
+      <img src={imageUrl} />
       <h2>{address}</h2>
       <p>{description}</p>
     </div>

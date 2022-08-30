@@ -13,7 +13,7 @@ const Campus = db.define("campus", {
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:
-      "https://static.wikia.nocookie.net/starwars/images/f/f0/JediTemple-Deceived.jpg/revision/latest?cb=20220312224740",
+      "https://www.looper.com/img/gallery/everything-you-need-to-know-about-jedi-temples/l-intro-1608080501.jpg",
   },
   address: {
     type: Sequelize.STRING,

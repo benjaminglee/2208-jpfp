@@ -19,6 +19,8 @@ const syncAndSeed = async () => {
   });
   await Campus.create({
     name: "Royal Imperial Academy",
+    imageUrl:
+      "https://starwarsblog.starwars.com/wp-content/uploads/2016/02/imperialseal.jpg",
     address: "Galactic City, Coruscant",
     description:
       "The Royal Imperial Academy, also known as the Coruscant Imperial University, was the main campus of the Galactic Empire's military training program on the planet Coruscant. In the years leading up to the Galactic Civil War, the Academy's head was Commandant Deenlark. Alexsandr Kallus and Jovan graduated from that Imperial Academy at the same time. Thane Kyrell and Ciena Ree both graduated prior to the Battle of Yavin.",

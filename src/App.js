@@ -15,18 +15,16 @@ function App() {
   const students = useSelector((state) => state.students);
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="students">Students</Link>
-          </li>
-          <li>
-            <Link to="campuses">Campuses</Link>
-          </li>
-        </ul>
+      <nav id="nav">
+        <span>
+          <Link to="/">Home</Link>
+        </span>
+        <span>
+          <Link to="students">Students</Link>
+        </span>
+        <span>
+          <Link to="campuses">Campuses</Link>
+        </span>
       </nav>
       <main className="container">
         <Routes>
