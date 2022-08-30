@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import Campuses from "./components/campuses";
 import Students from "./components/students";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setStudents } from "./store/actions/studentActions";
 
 function App() {
-  const state = useSelector((state) => state);
-  console.log(state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setStudents());
+  }, [dispatch]);
+  const students = useSelector((state) => state.students);
   return (
     <>
       <nav>

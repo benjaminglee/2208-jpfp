@@ -1,6 +1,9 @@
 import React from "react";
 import SingleStudent from "./singleStudent";
+import { useSelector } from "react-redux";
+
 function Students() {
+  const students = useSelector((state) => state.students);
   const list = [
     {
       firstName: "Ben",
@@ -34,7 +37,7 @@ function Students() {
 
   return (
     <>
-      {list.map((student) => (
+      {students.map((student) => (
         <SingleStudent key={student.firstName} student={student} />
       ))}
     </>
