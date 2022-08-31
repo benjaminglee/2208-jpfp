@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 
 function Campuses() {
   const campuses = useSelector((state) => state.campuses);
-  console.log(campuses);
   return (
     <div className="campusList">
       {campuses.map((campus) => (

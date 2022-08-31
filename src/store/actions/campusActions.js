@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const SET_CAMPUSES = "SET_CAMPUSES";
-const ADD_CAMPUS = "ADD_CAMPUS";
+const CREATE_CAMPUS = "CREATE_CAMPUS";
 const UPDATE_CAMPUS = "UPDATE_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
 
@@ -12,9 +12,9 @@ const _setCampuses = (campuses) => {
   };
 };
 
-const _addCampus = (campus) => {
+const _createCampus = (campus) => {
   return {
-    type: ADD_CAMPUS,
+    type: CREATE_CAMPUS,
     campus,
   };
 };
@@ -44,12 +44,17 @@ export const setCampuses = () => {
   };
 };
 
-// export const createCampus = (campus) => {
-//     return async function (dispatch) {
-//         const {data: campus} = await axios.post(create campus route, campus)
-//         dispatch(_createCampus(campus));
-//     }
-// }
+export const createCampus = (campus) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.post("api/campuses", campus);
+      dispatch(_createCampus(data));
+    } catch (error) {
+      console.log(campus, "DURING ERROR");
+      console.log(error);
+    }
+  };
+};
 
 // export const deleteCampus = (campus) => {
 //     return async function (dispatch) {

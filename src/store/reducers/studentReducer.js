@@ -1,5 +1,5 @@
 const SET_STUDENTS = "SET_STUDENTS";
-const ADD_STUDENT = "ADD_STUDENT";
+const CREATE_STUDENT = "CREATE_STUDENT";
 const UPDATE_STUDENT = "UPDATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
 
@@ -7,7 +7,7 @@ const studentReducer = (state = [], action) => {
   switch (action.type) {
     case SET_STUDENTS:
       return action.students;
-    case ADD_STUDENT:
+    case CREATE_STUDENT:
       return [...state, action.student];
     case UPDATE_STUDENT:
       return state.map((student) =>

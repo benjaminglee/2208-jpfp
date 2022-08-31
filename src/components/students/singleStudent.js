@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
 function SingleStudent() {
-  console.log("helo");
   const studentId = useParams().studentId;
   const students = useSelector((state) => state.students);
   const student = students.find((student) => student.id === +studentId);
