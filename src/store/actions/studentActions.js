@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const SET_STUDENTS = "SET_STUDENTS";
-const ADD_STUDENT = "ADD_STUDENT";
+const CREATE_STUDENT = "CREATE_STUDENT";
 const UPDATE_STUDENT = "UPDATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
 
@@ -12,9 +12,9 @@ const _setStudents = (students) => {
   };
 };
 
-const _addStudent = (student) => {
+const _createStudent = (student) => {
   return {
-    type: ADD_STUDENT,
+    type: CREATE_STUDENT,
     student,
   };
 };
@@ -44,12 +44,16 @@ export const setStudents = () => {
   };
 };
 
-// export const createStudent = (student) => {
-//     return async function (dispatch) {
-//         const {data: student} = await axios.post(create student route, student)
-//         dispatch(_createStudent(student));
-//     }
-// }
+export const createStudent = (student) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.post("api/students", student);
+      dispatch(_createStudent(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // export const deleteStudent = (student) => {
 //     return async function (dispatch) {

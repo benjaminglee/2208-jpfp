@@ -50,7 +50,6 @@ export const createCampus = (campus) => {
       const { data } = await axios.post("api/campuses", campus);
       dispatch(_createCampus(data));
     } catch (error) {
-      console.log(campus, "DURING ERROR");
       console.log(error);
     }
   };

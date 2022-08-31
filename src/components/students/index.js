@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 function Students() {
   const students = useSelector((state) => state.students);
   return (
-    <div className="studentList">
+    <div className="campusList">
       {students.map((student) => (
         <div className="studentThumbnail" key={student.id}>
+          {console.log(student.id)}
           <Link to={`/students/${student.id}`}>
             <div>
               <p>

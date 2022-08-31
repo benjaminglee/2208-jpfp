@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setStudents } from "./store/actions/studentActions";
 import { setCampuses } from "./store/actions/campusActions";
 import CreateCampus from "./components/campuses/createCampusForm";
+import CreateStudent from "./components/students/createStudentForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,7 +39,15 @@ function App() {
               </>
             }
           />
-          <Route path="students" element={<Students />} />
+          <Route
+            path="students"
+            element={
+              <>
+                <CreateStudent />
+                <Students />
+              </>
+            }
+          />
           <Route path="campuses/:campusId/" element={<SingleCampus />} />
           <Route path="students/:studentId/" element={<SingleStudent />} />
         </Routes>

@@ -9,6 +9,7 @@ function Campuses() {
     <div className="campusList">
       {campuses.map((campus) => (
         <div className="campusThumbnail" key={campus.id}>
+          {console.log(campus.id)}
           <Link to={`/campuses/${campus.id}`}>
             <div>
               <p> {campus.name}</p>
