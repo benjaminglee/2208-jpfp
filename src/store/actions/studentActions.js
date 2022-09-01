@@ -55,12 +55,16 @@ export const createStudent = (student) => {
   };
 };
 
-// export const deleteStudent = (student) => {
-//     return async function (dispatch) {
-//         const {data: student} = await axios.delete(create delete route w/ student id)
-//         dispatch(_deleteStudent(student));
-//     }
-// }
+export const deleteStudent = (student) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.delete(`api/students/${student.id}`);
+      dispatch(_deleteStudent(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // export const updateStudent = (student) => {
 //     return async function (dispatch) {

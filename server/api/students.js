@@ -16,5 +16,15 @@ router.post("/", async (req, res, next) => {
     next(error);
   }
 });
+router.delete("/:studentId", async (req, res, next) => {
+  try {
+    const studentId = parseInt(req.params.studentId);
+    const student = await Student.findByPk(studentId);
+    await student.destroy();
+    res.send(student);
+  } catch (error) {
+    next(error);
+  }
+});
 
 module.exports = router;

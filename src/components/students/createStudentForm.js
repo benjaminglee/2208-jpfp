@@ -22,7 +22,6 @@ const CreateStudent = () => {
       gpa,
       campusId: !parseInt(campusId) ? undefined : parseInt(campusId),
     };
-    console.log(student);
     dispatch(createStudent(student));
     setfirstName("");
     setlastName("");

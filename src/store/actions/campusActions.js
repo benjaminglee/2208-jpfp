@@ -55,12 +55,16 @@ export const createCampus = (campus) => {
   };
 };
 
-// export const deleteCampus = (campus) => {
-//     return async function (dispatch) {
-//         const {data: campus} = await axios.delete(create delete route w/ campus id)
-//         dispatch(_deleteCampus(campus));
-//     }
-// }
+export const deleteCampus = (campus) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.delete(`api/campuses/${campus.id}`);
+      dispatch(_deleteCampus(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // export const updateCampus = (campus) => {
 //     return async function (dispatch) {
