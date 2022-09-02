@@ -18,12 +18,9 @@ const UpdateCampus = () => {
       address: address,
       description: description,
       id: currentCampus.id,
-      // students: currentCampus.students,
     };
-    console.log("current campus", currentCampus);
-    console.log("updated campus", newCampus);
+
     dispatch(updateCampus(newCampus));
-    console.log("state value", currentCampus);
     setCampusName("");
     setImageUrl("");
     setAddress("");

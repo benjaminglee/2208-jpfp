@@ -85,9 +85,13 @@ export const setStudent = (studentId) => {
   };
 };
 
-// export const updateStudent = (student) => {
-//     return async function (dispatch) {
-//         const {data: student} = await axios.put(create student update route, student)
-//         dispatch(_updateStudent(student));
-//     }
-// }
+export const updateStudent = (student) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.put(`api/students/${student.id}`, student);
+      dispatch(_updateStudent(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

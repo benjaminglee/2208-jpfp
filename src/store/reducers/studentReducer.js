@@ -25,6 +25,8 @@ export const singleStudentReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_STUDENT:
       return action.student;
+    case UPDATE_STUDENT:
+      return { ...state, ...action.student };
     default:
       return state;
   }
