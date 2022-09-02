@@ -4,6 +4,7 @@ const SET_STUDENTS = "SET_STUDENTS";
 const CREATE_STUDENT = "CREATE_STUDENT";
 const UPDATE_STUDENT = "UPDATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
+const SET_STUDENT = "SET_STUDENT";
 
 const _setStudents = (students) => {
   return {
@@ -29,6 +30,13 @@ const _updateStudent = (student) => {
 const _deleteStudent = (student) => {
   return {
     type: DELETE_STUDENT,
+    student,
+  };
+};
+
+const _setStudent = (student) => {
+  return {
+    type: SET_STUDENT,
     student,
   };
 };
@@ -60,6 +68,17 @@ export const deleteStudent = (student) => {
     try {
       const { data } = await axios.delete(`api/students/${student.id}`);
       dispatch(_deleteStudent(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const setStudent = (studentId) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`api/students/${studentId}`);
+      dispatch(_setStudent(data));
     } catch (error) {
       console.log(error);
     }

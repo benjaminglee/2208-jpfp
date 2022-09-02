@@ -2,6 +2,7 @@ const SET_STUDENTS = "SET_STUDENTS";
 const CREATE_STUDENT = "CREATE_STUDENT";
 const UPDATE_STUDENT = "UPDATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
+const SET_STUDENT = "SET_STUDENT";
 
 const studentReducer = (state = [], action) => {
   switch (action.type) {
@@ -15,6 +16,15 @@ const studentReducer = (state = [], action) => {
       );
     case DELETE_STUDENT:
       return state.filter((student) => student.id !== action.student.id);
+    default:
+      return state;
+  }
+};
+
+export const singleStudentReducer = (state = {}, action) => {
+  switch (action.type) {
+    case SET_STUDENT:
+      return action.student;
     default:
       return state;
   }

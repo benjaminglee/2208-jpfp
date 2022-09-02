@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
+import { setStudent } from "../../store/actions/studentActions";
 
 function SingleStudent() {
   const studentId = useParams().studentId;
-  const students = useSelector((state) => state.students);
-  const student = students.find((student) => student.id === +studentId);
-  const campuses = useSelector((state) => state.campuses);
-  const enrolledCampus = student
-    ? campuses.filter((campus) => student.campusId === campus.id)[0]
-    : null;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setStudent(studentId));
+  }, [dispatch]);
+  const student = useSelector((state) => state.student);
+  const { firstName, lastName, imageUrl, gpa, email, campus } = student;
   return (
     <div className="container">
       <h1>
-        {student?.firstName} {student?.lastName}
+        {firstName} {lastName}
       </h1>
-      <img src={student?.imageUrl} />
-      <h2>GPA: {student?.gpa}</h2>
-      <p>{student?.email}</p>
-      <p>{enrolledCampus ? "Attending:" : "Not attending a campus."}</p>
-      {enrolledCampus ? (
-        <Link to={`/campuses/${enrolledCampus.id}`}>
-          <div>{enrolledCampus.name}</div>
-        </Link>
-      ) : null}
+      <img src={imageUrl} />
+      <h2>GPA: {gpa}</h2>
+      <p>{email}</p>
+      {campus ? (
+        <p>
+          Attending:
+          <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
+        </p>
+      ) : (
+        <p>Not attending a campus.</p>
+      )}
     </div>
   );
 }

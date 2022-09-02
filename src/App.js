@@ -9,6 +9,7 @@ import { setStudents } from "./store/actions/studentActions";
 import { setCampuses } from "./store/actions/campusActions";
 import CreateCampus from "./components/campuses/createCampusForm";
 import CreateStudent from "./components/students/createStudentForm";
+import UpdateCampus from "./components/campuses/updateCampusForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -48,8 +49,23 @@ function App() {
               </>
             }
           />
-          <Route path="campuses/:campusId/" element={<SingleCampus />} />
-          <Route path="students/:studentId/" element={<SingleStudent />} />
+          <Route
+            path="campuses/:campusId/"
+            element={
+              <>
+                <SingleCampus />
+                {/* <UpdateCampus /> */}
+              </>
+            }
+          />
+          <Route
+            path="students/:studentId/"
+            element={
+              <>
+                <SingleStudent />
+              </>
+            }
+          />
         </Routes>
       </main>
     </>

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { createCampus } from "../../store/actions/campusActions";
+import { updateCampus } from "../../store/actions/campusActions";
 
-const CreateCampus = () => {
+const UpdateCampus = () => {
+  const currentCampus = useSelector((state) => state.campus);
   const [campusName, setCampusName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [address, setAddress] = useState("");
@@ -11,13 +12,18 @@ const CreateCampus = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    const campus = {
+    const newCampus = {
       name: campusName,
       imageUrl: imageUrl === "" ? undefined : imageUrl,
       address: address,
       description: description,
+      id: currentCampus.id,
+      // students: currentCampus.students,
     };
-    dispatch(createCampus(campus));
+    console.log("current campus", currentCampus);
+    console.log("updated campus", newCampus);
+    dispatch(updateCampus(newCampus));
+    console.log("state value", currentCampus);
     setCampusName("");
     setImageUrl("");
     setAddress("");
@@ -55,4 +61,4 @@ const CreateCampus = () => {
   );
 };
 
-export default CreateCampus;
+export default UpdateCampus;
