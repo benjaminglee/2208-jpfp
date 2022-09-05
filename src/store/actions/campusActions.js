@@ -1,15 +1,22 @@
 import axios from "axios";
 
 const SET_CAMPUSES = "SET_CAMPUSES";
+const SET_CAMPUS = "SET_CAMPUS";
 const CREATE_CAMPUS = "CREATE_CAMPUS";
 const UPDATE_CAMPUS = "UPDATE_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
-const SET_CAMPUS = "SET_CAMPUS";
 
 const _setCampuses = (campuses) => {
   return {
     type: SET_CAMPUSES,
     campuses,
+  };
+};
+
+const _setCampus = (campus) => {
+  return {
+    type: SET_CAMPUS,
+    campus,
   };
 };
 
@@ -34,18 +41,22 @@ const _deleteCampus = (campus) => {
   };
 };
 
-const _setCampus = (campus) => {
-  return {
-    type: SET_CAMPUS,
-    campus,
-  };
-};
-
 export const setCampuses = () => {
   return async function (dispatch) {
     try {
       const { data: campuses } = await axios.get("api/campuses");
       dispatch(_setCampuses(campuses));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const setCampus = (campusId) => {
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(`api/campuses/${campusId}`);
+      dispatch(_setCampus(data));
     } catch (error) {
       console.log(error);
     }
@@ -79,17 +90,6 @@ export const updateCampus = (campus) => {
     try {
       const { data } = await axios.put(`api/campuses/${campus.id}`, campus);
       dispatch(_updateCampus(data));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-};
-
-export const setCampus = (campusId) => {
-  return async function (dispatch) {
-    try {
-      const { data } = await axios.get(`api/campuses/${campusId}`);
-      dispatch(_setCampus(data));
     } catch (error) {
       console.log(error);
     }

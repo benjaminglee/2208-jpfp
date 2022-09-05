@@ -35,7 +35,8 @@ const UpdateCampus = () => {
   };
 
   return (
-    <form id="campus-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="formTitle">Update Campus</p>
       <label htmlFor="campusName">Name:</label>
       <input
         name="campusName"
@@ -58,13 +59,17 @@ const UpdateCampus = () => {
         onChange={(event) => setAddress(event.target.value)}
       />
       <label htmlFor="description">About:</label>
-      <input
+      <textarea
+        rows="5"
+        cols="60"
         name="description"
         value={description}
         placeholder={currDescription}
         onChange={(event) => setDescription(event.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

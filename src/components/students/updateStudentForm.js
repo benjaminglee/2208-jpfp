@@ -22,7 +22,6 @@ const UpdateStudent = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = async (evt) => {
-    console.log(currentStudent);
     evt.preventDefault();
     const student = {
       firstName: firstName.length ? firstName : currFirstName,
@@ -43,7 +42,8 @@ const UpdateStudent = () => {
   };
 
   return (
-    <form id="campus-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="formTitle">Update Student</p>
       <label htmlFor="firstName">First Name:</label>
       <input
         name="firstName"
@@ -94,7 +94,9 @@ const UpdateStudent = () => {
               })
           : null}
       </select>
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

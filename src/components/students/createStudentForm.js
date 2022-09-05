@@ -31,7 +31,8 @@ const CreateStudent = () => {
   };
 
   return (
-    <form id="campus-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="formTitle">Create Student</p>
       <label htmlFor="firstName">First Name:</label>
       <input
         name="firstName"
@@ -75,7 +76,9 @@ const CreateStudent = () => {
             })
           : null}
       </select>
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

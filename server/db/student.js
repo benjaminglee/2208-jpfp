@@ -28,7 +28,7 @@ const Student = db.define("student", {
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:
-      "https://media.wired.com/photos/5dd593a829b9c40008b179b3/master/pass/Cul-BabyYoda_mandalorian-thechild-1_af408bfd.jpg",
+      "https://thumbs.dreamstime.com/b/default-avatar-profile-icon-vector-default-avatar-profile-icon-vector-social-media-user-image-vector-illustration-227787227.jpg",
   },
   gpa: {
     type: Sequelize.DECIMAL,

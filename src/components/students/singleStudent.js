@@ -13,21 +13,25 @@ function SingleStudent() {
   const student = useSelector((state) => state.student);
   const { firstName, lastName, imageUrl, gpa, email, campus } = student;
   return (
-    <div className="container">
-      <h1>
-        {firstName} {lastName}
-      </h1>
-      <img src={imageUrl} />
-      <h2>GPA: {gpa}</h2>
-      <p>{email}</p>
-      {campus ? (
-        <p>
-          Attending:
-          <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
-        </p>
-      ) : (
-        <p>Not attending a campus.</p>
-      )}
+    <div className="singlePageContainer">
+      <div className="singlePageView">
+        <h1 id="studentName">
+          {firstName} {lastName}
+        </h1>
+        <div className="profile">
+          <img src={imageUrl} />
+        </div>
+        <h2 id="gpa">GPA: {gpa}</h2>
+        <p id="studentEmail">{email}</p>
+        {campus ? (
+          <p>
+            Attending:
+            <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
+          </p>
+        ) : (
+          <p>Not attending a campus.</p>
+        )}
+      </div>
       <UpdateStudent />
     </div>
   );

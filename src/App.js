@@ -9,7 +9,6 @@ import { setStudents } from "./store/actions/studentActions";
 import { setCampuses } from "./store/actions/campusActions";
 import CreateCampus from "./components/campuses/createCampusForm";
 import CreateStudent from "./components/students/createStudentForm";
-import UpdateCampus from "./components/campuses/updateCampusForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -18,15 +17,16 @@ function App() {
     dispatch(setStudents());
   }, [dispatch]);
   const students = useSelector((state) => state.students);
+  const campuses = useSelector((state) => state.campuses);
   return (
     <>
       <nav id="nav">
-        <span>
-          <Link to="students">Students</Link>
-        </span>
-        <span>
-          <Link to="campuses">Campuses</Link>
-        </span>
+        <Link to="students">
+          <p className="navLink">{`Students (${students.length})`}</p>
+        </Link>
+        <Link to="campuses">
+          <p className="navLink">{`Campuses (${campuses.length})`}</p>
+        </Link>
       </nav>
       <main className="container">
         <Routes>
@@ -34,19 +34,19 @@ function App() {
           <Route
             path="campuses"
             element={
-              <>
-                <CreateCampus />
+              <div className="page">
                 <Campuses />
-              </>
+                <CreateCampus />
+              </div>
             }
           />
           <Route
             path="students"
             element={
-              <>
-                <CreateStudent />
+              <div className="page">
                 <Students />
-              </>
+                <CreateStudent />
+              </div>
             }
           />
           <Route
@@ -54,7 +54,6 @@ function App() {
             element={
               <>
                 <SingleCampus />
-                {/* <UpdateCampus /> */}
               </>
             }
           />

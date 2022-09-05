@@ -13,7 +13,7 @@ const Campus = db.define("campus", {
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:
-      "https://www.looper.com/img/gallery/everything-you-need-to-know-about-jedi-temples/l-intro-1608080501.jpg",
+      "https://thumbs.dreamstime.com/b/education-icon-school-perfect-application-web-logo-presentation-template-design-line-style-171841338.jpg",
   },
   address: {
     type: Sequelize.STRING,

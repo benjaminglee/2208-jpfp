@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createCampus } from "../../store/actions/campusActions";
 
 const CreateCampus = () => {
@@ -25,7 +25,8 @@ const CreateCampus = () => {
   };
 
   return (
-    <form id="campus-form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
+      <p className="formTitle">Create Campus</p>
       <label htmlFor="campusName">Name:</label>
       <input
         name="campusName"
@@ -45,12 +46,16 @@ const CreateCampus = () => {
         onChange={(event) => setAddress(event.target.value)}
       />
       <label htmlFor="description">About:</label>
-      <input
+      <textarea
+        rows="5"
+        cols="60"
         name="description"
         value={description}
         onChange={(event) => setDescription(event.target.value)}
       />
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">
+        Submit
+      </button>
     </form>
   );
 };

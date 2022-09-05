@@ -1,29 +1,179 @@
 * {
   margin: 0;
+  font-family: "Quicksand", sans-serif;
+  font-size: 18px;
+  color: rgb(54, 54, 54);
+}
+a {
+  padding: 5px;
+  color: rgb(82, 137, 46);
+  text-decoration: none;
+}
+body {
+  background-color: #fecd70;
 }
 img {
-  width: 33%;
+  max-width: 100%;
+  max-height: 100%;
 }
 nav {
-  background-color: yellow;
+  background-color: #e3c770;
+  height: 70px;
+}
+input {
+  box-sizing: border-box;
 }
 .container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.1);
-  margin: 10px;
+  margin-top: 30px;
+}
+.singlePageContainer {
+  display: flex;
+  justify-content: center;
+}
+.singlePageView {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-right: 150px;
+  border-radius: 5px;
+  background-color: #ffae6d;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.profile {
+  text-align: center;
+  width: 300px;
+  max-height: 250px;
+  overflow: hidden;
+}
+.campusImage {
+  text-align: center;
+  width: 500px;
+  max-height: 300px;
+  overflow: hidden;
 }
 
-.campusList {
+.page {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.itemList {
   display: flex;
   align-items: center;
-  background-color: white;
+  flex-direction: column;
+  width: 500px;
+}
+
+.thumbnail {
+  margin: 5px;
+  border-radius: 5px;
+  height: 100px;
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #ffae6d;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
+}
+.thumbnailInfo {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+}
+.email {
+  font-style: italic;
+  font-size: 15px;
+}
+.campusInfo {
+  font-size: 15px;
+}
+
+.delete {
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(232, 85, 68);
+  height: 25%;
+  margin-left: auto;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffae6d;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.navLink {
+  font-size: 35px;
+  padding: auto;
+}
+.navLink:hover {
+  color: rgb(82, 137, 46);
+}
+
+.submit {
+  margin-top: 20px;
+  padding: 5px;
+  width: 30%;
+  align-self: center;
+  text-align: center;
+  font-size: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 20px;
+  min-width: 350px;
+  width: 30%;
+  height: 70%;
+  background-color: #f3e0b5;
+  box-shadow: 1px 4px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.formTitle {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.unregister {
+  align-items: flex-start;
 }
 
 #nav {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+#studentName {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#gpa {
+  margin-top: 20px;
+}
+#studentEmail {
+  font-style: italic;
+}
+#singlePageCampusTitle {
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+#singlePageCampusAddress {
+  margin-top: 20px;
+  font-style: italic;
 }

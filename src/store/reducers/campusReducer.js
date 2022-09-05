@@ -4,7 +4,7 @@ const UPDATE_CAMPUS = "UPDATE_CAMPUS";
 const DELETE_CAMPUS = "DELETE_CAMPUS";
 const SET_CAMPUS = "SET_CAMPUS";
 
-const campusReducer = (state = [], action) => {
+export const campusReducer = (state = [], action) => {
   switch (action.type) {
     case SET_CAMPUSES:
       return action.campuses;

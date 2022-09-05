@@ -17,30 +17,38 @@ function SingleCampus() {
   const students = campus.students;
 
   return (
-    <div className="container">
-      <h1>{name}</h1>
-      <img src={imageUrl} />
-      <h2>{address}</h2>
-      <p>{description}</p>
-      <p>{students?.length ? "Enrollees:" : "No students attending."}</p>
-      {students?.map((student) => {
-        return (
-          <div key={student.id}>
-            <Link to={`/students/${student.id}`}>
-              {student.firstName} {student.lastName}
-            </Link>
-            <button
-              onClick={async () => {
-                await dispatch(updateStudent({ ...student, campusId: null }));
-                await dispatch(setCampus(campusId));
-                setClicked(true);
-              }}
-            >
-              Unregister
-            </button>
-          </div>
-        );
-      })}
+    <div className="singlePageContainer">
+      <div className="singlePageView">
+        <h1 id="singlePageCampusTitle">{name}</h1>
+        <div className="campusImage">
+          <img src={imageUrl} />
+        </div>
+        <h2 id="singlePageCampusAddress">{address}</h2>
+        <br></br>
+        <p>{description}</p>
+        <br></br>
+        <p>{students?.length ? "Enrollees:" : "No students attending."}</p>
+        <br></br>
+        {students?.map((student) => {
+          return (
+            <div key={student.id}>
+              <Link to={`/students/${student.id}`}>
+                {student.firstName} {student.lastName}
+              </Link>
+              <button
+                className="unregister"
+                onClick={async () => {
+                  await dispatch(updateStudent({ ...student, campusId: null }));
+                  await dispatch(setCampus(campusId));
+                  setClicked(true);
+                }}
+              >
+                Unregister
+              </button>
+            </div>
+          );
+        })}
+      </div>
       <UpdateCampus />
     </div>
   );

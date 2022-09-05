@@ -1,18 +1,30 @@
 import React from "react";
-import SingleCampus from "./singleCampus";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { deleteCampus } from "../../store/actions/campusActions";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 function Campuses() {
   const dispatch = useDispatch();
   const campuses = useSelector((state) => state.campuses);
+  const students = useSelector((state) => state.students);
   return (
-    <div className="campusList">
+    <div className="itemList">
       {campuses.map((campus) => (
-        <div className="campusThumbnail" key={campus.id}>
+        <div className="thumbnail" key={campus.id}>
+          <Link to={`/campuses/${campus.id}`}>
+            <div>
+              <p className="name"> {campus.name}</p>
+              <p className="email">{campus.address}</p>
+            </div>
+            <p className="campusInfo">
+              {`Total Students Attending: (${
+                students.filter((student) => student.campusId === campus.id)
+                  .length
+              })`}
+            </p>
+          </Link>
           <button
+            className="delete"
             onClick={(e) => {
               e.preventDefault();
               dispatch(deleteCampus(campus));
@@ -20,12 +32,6 @@ function Campuses() {
           >
             x
           </button>
-          <Link to={`/campuses/${campus.id}`}>
-            <div>
-              <p> {campus.name}</p>
-              <img src={campus.imageUrl} />
-            </div>
-          </Link>
         </div>
       ))}
     </div>

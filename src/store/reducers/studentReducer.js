@@ -4,7 +4,7 @@ const UPDATE_STUDENT = "UPDATE_STUDENT";
 const DELETE_STUDENT = "DELETE_STUDENT";
 const SET_STUDENT = "SET_STUDENT";
 
-const studentReducer = (state = [], action) => {
+export const studentReducer = (state = [], action) => {
   switch (action.type) {
     case SET_STUDENTS:
       return action.students;
